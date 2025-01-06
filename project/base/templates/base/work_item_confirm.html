@@ -1,0 +1,7 @@
+<a href="{% url 'pendings' %}">Volver</a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>¿Estás seguro de eliminar la tarea: "{{work_item}}"?</p>
+    <input type="submit" value="Si">
+</form>

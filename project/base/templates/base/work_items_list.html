@@ -1,0 +1,23 @@
+<h1> Lista de tareas pendientes </h1>
+<a href="{% url 'create-work-item' %}">Crear una nueva tarea</a>
+
+<table>
+    <tr>
+        <th>Elementos</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for work_item in work_items %}
+    <tr>
+        <td>{{ work_item.title }}</td>
+        <td><a href="{% url 'details' work_item.id %}">Ver detalles</a></td>
+        <td><a href="{% url 'update-work-item' work_item.id %}">Editar</a></td>
+        <td><a href="{% url 'delete-work-item' work_item.id %}">Eliminar</a></td>
+    </tr>
+
+    {% empty %}
+    <h3>No hay elementos en esta lista</h3>
+    {% endfor %}
+
+</table>
