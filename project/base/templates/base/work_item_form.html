@@ -1,12 +1,15 @@
 {% extends 'index.html' %}
 {% block content %}
-<h1>Formulario de tareas</h1>
-<a href="{% url 'pendings'%}">Volver</a>
+<div class="top-space">
+    <a href="{% url 'pendings'%}">&#x2190; Volver</a>
+</div>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Enviar">
-</form>
+<div class="body-tarjet">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</div>
 
 {% endblock content %}

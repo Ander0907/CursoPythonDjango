@@ -1,14 +1,23 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<h1>Crea una cuenta</h1>
+<div class="top-space">
+    <h1>Crea una cuenta</h1>
+</div>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Crear cuenta">
-</form>
-
-<a href="{% url 'login' %}">Ya tienes una cuenta? Inicia sesión</a>
+<div class="body-tarjet">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>{{ form.username.label }}</label>
+        {{ form.username }}
+        <label>{{ form.password1.label }}</label>
+        {{ form.password1 }}
+        <label>{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        <input style="margin-top: 10px;" type="submit" value="Crear cuenta">
+    </form>
+    
+    <a href="{% url 'login' %}">Ya tienes una cuenta? Inicia sesión</a>
+</div>
 
 {% endblock content %}

@@ -1,12 +1,16 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<a href="{% url 'pendings' %}">Volver</a>
+<div class="top-space">
+    <a href="{% url 'pendings' %}">Volver</a>
+</div>
 
-<form action="" method="post">
-    {% csrf_token %}
-    <p>¿Estás seguro de eliminar la tarea: "{{work_item}}"?</p>
-    <input type="submit" value="Si">
-</form>
+<div class="body-tarjet">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>¿Estás seguro de eliminar la tarea: "{{work_item}}"?</p>
+        <input type="submit" value="Si">
+    </form>
+</div>
 
 {% endblock content %}

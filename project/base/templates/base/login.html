@@ -1,13 +1,18 @@
 {% extends 'index.html' %}
 {% block content %}
-<h1>Ingresar</h1>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Ingresar">
-</form>
+<div class="top-space">
+    <h1>Ingresar</h1>
+</div>
 
-<p>¿No tienes una cuenta? <a href="{% url 'create-account' %}">Registrate</a></p>
+<div class="body-tarjet">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ingresar">
+    </form>
+    
+    <p>¿No tienes una cuenta? <a href="{% url 'create-account' %}">Registrate</a></p>
+</div>
 
 {% endblock content %}
