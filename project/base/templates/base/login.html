@@ -1,3 +1,5 @@
+{% extends 'index.html' %}
+{% block content %}
 <h1>Ingresar</h1>
 
 <form action="" method="post">
@@ -7,3 +9,5 @@
 </form>
 
 <p>¿No tienes una cuenta? <a href="{% url 'create-account' %}">Registrate</a></p>
+
+{% endblock content %}

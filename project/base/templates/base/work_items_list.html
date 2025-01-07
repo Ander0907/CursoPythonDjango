@@ -1,16 +1,31 @@
-{% if request.user.is_authenticated %}
-    <p>{{ request.user }}</p>
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="top-space">
+    <div>
+        <h1>Hola {{request.user|title}}</h1>
+        <h3 style="margin: 0;">Tienes <i>{{count}}</i> tarea{{count|pluralize}} sin completar</h3>
+    </div>
+    {% if request.user.is_authenticated %}
     <form action="{% url 'logout' %}" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
     </form>
-{% else %}
+    {% else %}
     <a href="{% url 'login' %}">Ingresar</a>
-{% endif %}
+    {% endif %}
+</div>
+
+
 <hr>
 
 <h1> Lista de tareas pendientes </h1>
 <a href="{% url 'create-work-item' %}">Crear una nueva tarea</a>
+
+<form action="" method="get">
+    <input type="text" name="search" placeholder="Buscar..." value="{{ request.GET.search }}">
+    <button type="submit">Buscar</button>
+</form>
 
 <table>
     <tr>
@@ -22,7 +37,6 @@
     {% for work_item in work_items %}
     <tr>
         <td>{{ work_item.title }}</td>
-        <td><a href="{% url 'details' work_item.id %}">Ver detalles</a></td>
         <td><a href="{% url 'update-work-item' work_item.id %}">Editar</a></td>
         <td><a href="{% url 'delete-work-item' work_item.id %}">Eliminar</a></td>
     </tr>
@@ -32,3 +46,5 @@
     {% endfor %}
 
 </table>
+
+{% endblock content %}

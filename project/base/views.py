@@ -43,6 +43,11 @@ class ListPending(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwarg)
         context['work_items'] = context['work_items'].filter(user= self.request.user)
         context['count'] = context['work_items'].filter(completed=False).count()
+
+        search_input = self.request.GET.get('search') or ''
+        if search_input:
+            context['work_items'] = context['work_items'].filter(title__icontains=search_input)
+        context['search_input'] = search_input
         return context
     
 class DetailWorkItem(LoginRequiredMixin, DetailView):

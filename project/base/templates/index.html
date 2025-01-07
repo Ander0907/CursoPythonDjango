@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Lista de tareas</title>
+    <style>
+        body {
+            font-family: "Poppins", serif;
+            background-color: beige;
+            padding-top: 60px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background-color: lightblue;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.75);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+        }
+
+        a, p {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .top-space {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(90deg, rgb(13, 144, 196) 0%, rgb(32, 146, 190) 50%, rgba(184, 161, 161, 0) 100%);
+        }
+
+        .top-space a {
+            color: white;
+        }
+    </style>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
