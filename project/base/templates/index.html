@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Lista de tareas</title>
     <style>
         body {
@@ -41,6 +41,80 @@
 
         .top-space a {
             color: white;
+        }
+
+        button{
+            border-radius: 3px;
+            padding: 4px;
+            font-family: "Poppins", serif;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid #EB796F;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: "Poppins", serif;
+        }
+
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+
+        .work-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            border-top: 1px solid rgb(225, 225, 225);
+        }
+
+        .work-item-title {
+            display: flex;
+        }
+
+        .work-item-title a {
+            margin-left: 10px;
+        }
+
+        .work-item-icon {
+            height: 20px;
+            width: 20px;
+            border-radius: 50px;
+            background-color: rgb(1, 112, 47);
+        }
+
+        .work-item-icon-uncompleted {
+            height: 20px;
+            width: 20px;
+            border-radius: 50px;
+            background-color: rgb(168, 172, 167);
+        }
+
+        .link-delete {
+            font-size: 22px;
+            line-height: 0;
+        }
+
+        #create-search-work-item-area {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            align-items: center;
+        }
+
+        #link-add {
+            font-size: 38px;
+            color: #246e06;
+            text-shadow: 1px 1px #81413B;
         }
     </style>
 <body>

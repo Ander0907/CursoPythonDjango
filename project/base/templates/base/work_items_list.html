@@ -4,7 +4,7 @@
 <div class="top-space">
     <div>
         <h1>Hola {{request.user|title}}</h1>
-        <h3 style="margin: 0;">Tienes <i>{{count}}</i> tarea{{count|pluralize}} sin completar</h3>
+        <h3 style="margin: 0;">Tienes {{count}} tarea{{count|pluralize}} sin completar</h3>
     </div>
     {% if request.user.is_authenticated %}
     <form action="{% url 'logout' %}" method="post" style="display: inline;">
@@ -16,35 +16,35 @@
     {% endif %}
 </div>
 
+<div id="create-search-work-item-area">
+    <form action="" method="get" style="margin-top: 20px; display: flex;">
+        <input type="text" name="search" placeholder="Buscar..." value="{{ request.GET.search }}">
+        <button type="submit">Buscar</button>
+    </form>
+    <a id="link-add" href="{% url 'create-work-item' %}">&#x1F7A5;</a>
+</div>
 
-<hr>
-
-<h1> Lista de tareas pendientes </h1>
-<a href="{% url 'create-work-item' %}">Crear una nueva tarea</a>
-
-<form action="" method="get">
-    <input type="text" name="search" placeholder="Buscar..." value="{{ request.GET.search }}">
-    <button type="submit">Buscar</button>
-</form>
-
-<table>
-    <tr>
-        <th>Elementos</th>
-        <th></th>
-        <th></th>
-    </tr>
-
+<div class="work-items-area">
     {% for work_item in work_items %}
-    <tr>
-        <td>{{ work_item.title }}</td>
-        <td><a href="{% url 'update-work-item' work_item.id %}">Editar</a></td>
-        <td><a href="{% url 'delete-work-item' work_item.id %}">Eliminar</a></td>
-    </tr>
+    <div class="work-item">
+        {% if work_item.completed %}
+        <div class="work-item-title">
+            <div class="work-item-icon"></div>
+            <i><s><a href="{% url 'update-work-item' work_item.id %}">{{work_item}}</a></s></i>
+        </div>
+        <a class="link-delete" href="{% url 'delete-work-item' work_item.id %}">&#x274C;</a>
+        {% else %}
+        <div class="work-item-title">
+            <div class="work-item-icon-uncompleted"></div>
+                <a href="{% url 'update-work-item' work_item.id %}">{{work_item}}</a>
+            </div>
+        <a class="link-delete" href="{% url 'delete-work-item' work_item.id %}">&#x274C;</a>
+        {%endif%}
+    </div>
 
     {% empty %}
     <h3>No hay elementos en esta lista</h3>
     {% endfor %}
-
-</table>
+</div>
 
 {% endblock content %}
